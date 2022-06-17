@@ -4,7 +4,6 @@ with procedure_pivot as(
   from 
       (select 
           claim_id
-          ,member_id
           ,procedure_cd
           ,seq_num
           ,icd_vers_flag
@@ -45,7 +44,6 @@ with procedure_pivot as(
   from 
       (select 
           claim_id
-          ,member_id
           ,procedure_dt
           ,seq_num
        from {{ var('medical_claims_procedures')}}
@@ -82,7 +80,6 @@ with procedure_pivot as(
   
 select
   px.claim_id
-  ,px.member_id
   ,px.icd_vers_flag
   ,px.procedure_code_1
   ,px.procedure_code_2

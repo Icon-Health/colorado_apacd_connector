@@ -4,7 +4,6 @@ with diagnois_pivot as(
   from 
       (select 
           claim_id
-          ,member_id_id
           ,dx_cd
           ,icd_seq_num
           ,icd_vers_flag
@@ -45,7 +44,6 @@ with diagnois_pivot as(
   from 
       (select 
           claim_id
-          ,member_id
           ,poa_cd
           ,poa_seq_num
        from {{ var('medical_claims_dx')}}
@@ -82,7 +80,6 @@ with diagnois_pivot as(
   
 select
   dx.claim_id
-  ,dx.member_id
   ,dx.icd_vers_flag
   ,dx.diagnosis_code_1
   ,dx.diagnosis_code_2

@@ -25,17 +25,17 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 vars:
-    source_database:          # configuration required - name of the database (project in BigQuery) where your data is stored
-    source_schema:       # configuration required - name of the schema (dataset in BigQuery) where you created staging tables
-    source_name: colorado_apacd      # configuration required - name of your source dataset e.g. cms_claims
+    source_database: ferrous-weaver-306014          # configuration required - name of the database (project in BigQuery) where your data is stored
+    source_schema: COAPCD       # configuration required - name of the schema (dataset in BigQuery) where you created staging tables
+    source_name: COAPCD      # configuration required - name of your source dataset e.g. cms_claims
 
-    member_demographics: "{{ source(var('source_name'),'member_demographics') }}"
-    member_eligibility: "{{ source(var('source_name'),'member_eligibility') }}"
-    medical_claims_header: "{{ source(var('source_name'),'medical_claims_header') }}"
+    member_demographics: "{{ source(var('source_name'),'Members') }}"
+    member_eligibility: "{{ source(var('source_name'),'Member_Eligibility') }}"
+    medical_claims_header: "{{ source(var('source_name'),'Medical_Claims_Header') }}"
     medical_claims_line: "{{ source(var('source_name'),'medical_claims_line') }}"
-    medical_claims_dx: "{{ source(var('source_name'),'medical_claims_dx') }}"
-    medical_claims_procedures: "{{ source(var('source_name'),'medical_claims_procedures') }}"
-    claim_level_value_add_drg: "{{ source(var('source_name'),'claim_level_value_add_drg') }}"
+    medical_claims_dx: "{{ source(var('source_name'),'Medical_Claims_Dx') }}"
+    medical_claims_procedures: "{{ source(var('source_name'),'Medical_Claims_Procedures') }}"
+    claim_level_value_add_drg: "{{ source(var('source_name'),'Claim_Level_Value_Add_DRG') }}"
 
 
 # Configuring models

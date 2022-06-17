@@ -1,111 +1,111 @@
 select
-    cast(h.claim_id as varchar) as claim_id
+    cast(h.claim_id as String) as claim_id
     ,cast(d.line_no as int) as claim_line_number
-    ,cast(h.member_id as varchar) as patient_id
+    ,cast(h.member_id as String) as patient_id
     ,cast(h.service_start_dt as date) as claim_start_date
     ,cast(h.service_end_dt as date) as claim_end_date
     ,cast(h.admit_dt as date) as admission_date
-    ,cast(h.dishcarge_dt as date) as discharge_date
+    ,cast(h.discharge_dt as date) as discharge_date
     ,cast(d.service_start_dt as date) as claim_line_start_date
     ,cast(d.service_end_dt as date) as claim_line_end_date
-    ,cast(h.claim_type_cd as varchar) as claim_type
-    ,cast(h.bill_type_cd as varchar) as bill_type_code
-    ,cast(d.place_of_service_cd as varchar) as place_of_service_code
-    ,cast(h.admit_source_cd as varchar) as admit_source_code
-    ,cast(h.admit_type_cd as varchar) as admit_type_code
-    ,cast(h.discharge_status_cd as varchar) as discharge_disposition_code
-    ,cast(drg.msdrg_cd as varchar) as ms_drg
-    ,cast(d.revenue_cd as varchar) as revenue_center_code
+    ,cast(h.claim_type_cd as String) as claim_type
+    ,cast(h.bill_type_cd as String) as bill_type_code
+    ,cast(d.place_of_service_cd as String) as place_of_service_code
+    ,cast(h.admit_source_cd as String) as admit_source_code
+    ,cast(h.admit_type_cd as String) as admit_type_code
+    ,cast(h.discharge_status_cd as String) as discharge_disposition_code
+    ,cast(drg.msdrg_cd as String) as ms_drg
+    ,cast(d.revenue_cd as String) as revenue_center_code
     ,cast(d.service_qty as int) as service_unit_quantity
-    ,cast(d.cpt4_cd as varchar) as hcpcs_code
-    ,cast(d.cpt4_mod1_cd as varchar) as hcpcs_modifier_1
-    ,cast(d.cpt4_mod2_cd as varchar) as hcpcs_modifier_2
-    ,cast(d.cpt4_mod3_cd as varchar) as hcpcs_modifier_3
-    ,cast(d.cpt4_mod4_cd as varchar) as hcpcs_modifier_4
-    ,cast(null as varchar) as hcpcs_modifier_5
-    ,cast(d.service_provider_id as varchar) as physician_npi
-    ,cast(d.service_provider_id as varchar) as facility_npi
-    ,cast(h.paid_date as date) as paid_date
-    ,cast(d.plan_paid_amt as float) as paid_amount
-    ,cast(d.charge_amt as float) as charge_amount
-    ,cast(null as varchar) as adjustment_type_code
-    ,cast(dx.diagnosis_code_1 as varchar) as diagnosis_code_1
-    ,cast(dx.diagnosis_code_2 as varchar) as diagnosis_code_2
-    ,cast(dx.diagnosis_code_3 as varchar) as diagnosis_code_3
-    ,cast(dx.diagnosis_code_4 as varchar) as diagnosis_code_4
-    ,cast(dx.diagnosis_code_5 as varchar) as diagnosis_code_5
-    ,cast(dx.diagnosis_code_6 as varchar) as diagnosis_code_6
-    ,cast(dx.diagnosis_code_7 as varchar) as diagnosis_code_7
-    ,cast(dx.diagnosis_code_8 as varchar) as diagnosis_code_8
-    ,cast(dx.diagnosis_code_9 as varchar) as diagnosis_code_9
-    ,cast(dx.diagnosis_code_10 as varchar) as diagnosis_code_10
-    ,cast(dx.diagnosis_code_11 as varchar) as diagnosis_code_11
-    ,cast(dx.diagnosis_code_12 as varchar) as diagnosis_code_12
-    ,cast(dx.diagnosis_code_13 as varchar) as diagnosis_code_13
-    ,cast(dx.diagnosis_code_14 as varchar) as diagnosis_code_14
-    ,cast(dx.diagnosis_code_15 as varchar) as diagnosis_code_15
-    ,cast(dx.diagnosis_code_16 as varchar) as diagnosis_code_16
-    ,cast(dx.diagnosis_code_17 as varchar) as diagnosis_code_17
-    ,cast(dx.diagnosis_code_18 as varchar) as diagnosis_code_18
-    ,cast(dx.diagnosis_code_19 as varchar) as diagnosis_code_19
-    ,cast(dx.diagnosis_code_20 as varchar) as diagnosis_code_20
-    ,cast(dx.diagnosis_code_21 as varchar) as diagnosis_code_21
-    ,cast(dx.diagnosis_code_22 as varchar) as diagnosis_code_22
-    ,cast(dx.diagnosis_code_23 as varchar) as diagnosis_code_23
-    ,cast(dx.diagnosis_code_24 as varchar) as diagnosis_code_24
-    ,cast(dx.diagnosis_code_25 as varchar) as diagnosis_code_25
-    ,cast(dx.diagnosis_poa_1 as varchar) as diagnosis_poa_1
-    ,cast(dx.diagnosis_poa_2 as varchar) as diagnosis_poa_2
-    ,cast(dx.diagnosis_poa_3 as varchar) as diagnosis_poa_3
-    ,cast(dx.diagnosis_poa_4 as varchar) as diagnosis_poa_4
-    ,cast(dx.diagnosis_poa_5 as varchar) as diagnosis_poa_5
-    ,cast(dx.diagnosis_poa_6 as varchar) as diagnosis_poa_6
-    ,cast(dx.diagnosis_poa_7 as varchar) as diagnosis_poa_7
-    ,cast(dx.diagnosis_poa_8 as varchar) as diagnosis_poa_8
-    ,cast(dx.diagnosis_poa_9 as varchar) as diagnosis_poa_9
-    ,cast(dx.diagnosis_poa_10 as varchar) as diagnosis_poa_10
-    ,cast(dx.diagnosis_poa_11 as varchar) as diagnosis_poa_11
-    ,cast(dx.diagnosis_poa_12 as varchar) as diagnosis_poa_12
-    ,cast(dx.diagnosis_poa_13 as varchar) as diagnosis_poa_13
-    ,cast(dx.diagnosis_poa_14 as varchar) as diagnosis_poa_14
-    ,cast(dx.diagnosis_poa_15 as varchar) as diagnosis_poa_15
-    ,cast(dx.diagnosis_poa_16 as varchar) as diagnosis_poa_16
-    ,cast(dx.diagnosis_poa_17 as varchar) as diagnosis_poa_17
-    ,cast(dx.diagnosis_poa_18 as varchar) as diagnosis_poa_18
-    ,cast(dx.diagnosis_poa_19 as varchar) as diagnosis_poa_19
-    ,cast(dx.diagnosis_poa_20 as varchar) as diagnosis_poa_20
-    ,cast(dx.diagnosis_poa_21 as varchar) as diagnosis_poa_21
-    ,cast(dx.diagnosis_poa_22 as varchar) as diagnosis_poa_22
-    ,cast(dx.diagnosis_poa_23 as varchar) as diagnosis_poa_23
-    ,cast(dx.diagnosis_poa_24 as varchar) as diagnosis_poa_24
-    ,cast(dx.diagnosis_poa_25 as varchar) as diagnosis_poa_25
-    ,cast(dx.icd_vers_flag as varchar) as diagnosis_code_type
-    ,cast(px.icd_vers_flag as varchar) as procedure_code_type
-    ,cast(px.procedure_code_1 as varchar) as procedure_code_1
-    ,cast(px.procedure_code_2 as varchar) as procedure_code_2
-    ,cast(px.procedure_code_3 as varchar) as procedure_code_3
-    ,cast(px.procedure_code_4 as varchar) as procedure_code_4
-    ,cast(px.procedure_code_5 as varchar) as procedure_code_5
-    ,cast(px.procedure_code_6 as varchar) as procedure_code_6
-    ,cast(px.procedure_code_7 as varchar) as procedure_code_7
-    ,cast(px.procedure_code_8 as varchar) as procedure_code_8
-    ,cast(px.procedure_code_9 as varchar) as procedure_code_9
-    ,cast(px.procedure_code_10 as varchar) as procedure_code_10
-    ,cast(px.procedure_code_11 as varchar) as procedure_code_11
-    ,cast(px.procedure_code_12 as varchar) as procedure_code_12
-    ,cast(px.procedure_code_13 as varchar) as procedure_code_13
-    ,cast(px.procedure_code_14 as varchar) as procedure_code_14
-    ,cast(px.procedure_code_15 as varchar) as procedure_code_15
-    ,cast(px.procedure_code_16 as varchar) as procedure_code_16
-    ,cast(px.procedure_code_17 as varchar) as procedure_code_17
-    ,cast(px.procedure_code_18 as varchar) as procedure_code_18
-    ,cast(px.procedure_code_19 as varchar) as procedure_code_19
-    ,cast(px.procedure_code_20 as varchar) as procedure_code_20
-    ,cast(px.procedure_code_21 as varchar) as procedure_code_21
-    ,cast(px.procedure_code_22 as varchar) as procedure_code_22
-    ,cast(px.procedure_code_23 as varchar) as procedure_code_23
-    ,cast(px.procedure_code_24 as varchar) as procedure_code_24
-    ,cast(px.procedure_code_25 as varchar) as procedure_code_25
+    ,cast(d.cpt4_cd as String) as hcpcs_code
+    ,cast(d.cpt4_mod1_cd as String) as hcpcs_modifier_1
+    ,cast(d.cpt4_mod2_cd as String) as hcpcs_modifier_2
+    ,cast(d.cpt4_mod3_cd as String) as hcpcs_modifier_3
+    ,cast(d.cpt4_mod4_cd as String) as hcpcs_modifier_4
+    ,cast(null as String) as hcpcs_modifier_5
+    ,cast(d.service_provider_id as String) as physician_npi
+    ,cast(d.service_provider_id as String) as facility_npi
+    ,cast(h.paid_dt as date) as paid_date
+    ,cast(d.plan_paid_amt as float64) as paid_amount
+    ,cast(d.charge_amt as float64) as charge_amount
+    ,cast(null as String) as adjustment_type_code
+    ,cast(dx.diagnosis_code_1 as String) as diagnosis_code_1
+    ,cast(dx.diagnosis_code_2 as String) as diagnosis_code_2
+    ,cast(dx.diagnosis_code_3 as String) as diagnosis_code_3
+    ,cast(dx.diagnosis_code_4 as String) as diagnosis_code_4
+    ,cast(dx.diagnosis_code_5 as String) as diagnosis_code_5
+    ,cast(dx.diagnosis_code_6 as String) as diagnosis_code_6
+    ,cast(dx.diagnosis_code_7 as String) as diagnosis_code_7
+    ,cast(dx.diagnosis_code_8 as String) as diagnosis_code_8
+    ,cast(dx.diagnosis_code_9 as String) as diagnosis_code_9
+    ,cast(dx.diagnosis_code_10 as String) as diagnosis_code_10
+    ,cast(dx.diagnosis_code_11 as String) as diagnosis_code_11
+    ,cast(dx.diagnosis_code_12 as String) as diagnosis_code_12
+    ,cast(dx.diagnosis_code_13 as String) as diagnosis_code_13
+    ,cast(dx.diagnosis_code_14 as String) as diagnosis_code_14
+    ,cast(dx.diagnosis_code_15 as String) as diagnosis_code_15
+    ,cast(dx.diagnosis_code_16 as String) as diagnosis_code_16
+    ,cast(dx.diagnosis_code_17 as String) as diagnosis_code_17
+    ,cast(dx.diagnosis_code_18 as String) as diagnosis_code_18
+    ,cast(dx.diagnosis_code_19 as String) as diagnosis_code_19
+    ,cast(dx.diagnosis_code_20 as String) as diagnosis_code_20
+    ,cast(dx.diagnosis_code_21 as String) as diagnosis_code_21
+    ,cast(dx.diagnosis_code_22 as String) as diagnosis_code_22
+    ,cast(dx.diagnosis_code_23 as String) as diagnosis_code_23
+    ,cast(dx.diagnosis_code_24 as String) as diagnosis_code_24
+    ,cast(dx.diagnosis_code_25 as String) as diagnosis_code_25
+    ,cast(dx.diagnosis_poa_1 as String) as diagnosis_poa_1
+    ,cast(dx.diagnosis_poa_2 as String) as diagnosis_poa_2
+    ,cast(dx.diagnosis_poa_3 as String) as diagnosis_poa_3
+    ,cast(dx.diagnosis_poa_4 as String) as diagnosis_poa_4
+    ,cast(dx.diagnosis_poa_5 as String) as diagnosis_poa_5
+    ,cast(dx.diagnosis_poa_6 as String) as diagnosis_poa_6
+    ,cast(dx.diagnosis_poa_7 as String) as diagnosis_poa_7
+    ,cast(dx.diagnosis_poa_8 as String) as diagnosis_poa_8
+    ,cast(dx.diagnosis_poa_9 as String) as diagnosis_poa_9
+    ,cast(dx.diagnosis_poa_10 as String) as diagnosis_poa_10
+    ,cast(dx.diagnosis_poa_11 as String) as diagnosis_poa_11
+    ,cast(dx.diagnosis_poa_12 as String) as diagnosis_poa_12
+    ,cast(dx.diagnosis_poa_13 as String) as diagnosis_poa_13
+    ,cast(dx.diagnosis_poa_14 as String) as diagnosis_poa_14
+    ,cast(dx.diagnosis_poa_15 as String) as diagnosis_poa_15
+    ,cast(dx.diagnosis_poa_16 as String) as diagnosis_poa_16
+    ,cast(dx.diagnosis_poa_17 as String) as diagnosis_poa_17
+    ,cast(dx.diagnosis_poa_18 as String) as diagnosis_poa_18
+    ,cast(dx.diagnosis_poa_19 as String) as diagnosis_poa_19
+    ,cast(dx.diagnosis_poa_20 as String) as diagnosis_poa_20
+    ,cast(dx.diagnosis_poa_21 as String) as diagnosis_poa_21
+    ,cast(dx.diagnosis_poa_22 as String) as diagnosis_poa_22
+    ,cast(dx.diagnosis_poa_23 as String) as diagnosis_poa_23
+    ,cast(dx.diagnosis_poa_24 as String) as diagnosis_poa_24
+    ,cast(dx.diagnosis_poa_25 as String) as diagnosis_poa_25
+    ,cast(dx.icd_vers_flag as String) as diagnosis_code_type
+    ,cast(px.icd_vers_flag as String) as procedure_code_type
+    ,cast(px.procedure_code_1 as String) as procedure_code_1
+    ,cast(px.procedure_code_2 as String) as procedure_code_2
+    ,cast(px.procedure_code_3 as String) as procedure_code_3
+    ,cast(px.procedure_code_4 as String) as procedure_code_4
+    ,cast(px.procedure_code_5 as String) as procedure_code_5
+    ,cast(px.procedure_code_6 as String) as procedure_code_6
+    ,cast(px.procedure_code_7 as String) as procedure_code_7
+    ,cast(px.procedure_code_8 as String) as procedure_code_8
+    ,cast(px.procedure_code_9 as String) as procedure_code_9
+    ,cast(px.procedure_code_10 as String) as procedure_code_10
+    ,cast(px.procedure_code_11 as String) as procedure_code_11
+    ,cast(px.procedure_code_12 as String) as procedure_code_12
+    ,cast(px.procedure_code_13 as String) as procedure_code_13
+    ,cast(px.procedure_code_14 as String) as procedure_code_14
+    ,cast(px.procedure_code_15 as String) as procedure_code_15
+    ,cast(px.procedure_code_16 as String) as procedure_code_16
+    ,cast(px.procedure_code_17 as String) as procedure_code_17
+    ,cast(px.procedure_code_18 as String) as procedure_code_18
+    ,cast(px.procedure_code_19 as String) as procedure_code_19
+    ,cast(px.procedure_code_20 as String) as procedure_code_20
+    ,cast(px.procedure_code_21 as String) as procedure_code_21
+    ,cast(px.procedure_code_22 as String) as procedure_code_22
+    ,cast(px.procedure_code_23 as String) as procedure_code_23
+    ,cast(px.procedure_code_24 as String) as procedure_code_24
+    ,cast(px.procedure_code_25 as String) as procedure_code_25
     ,cast(px.procedure_date_1 as date) as procedure_date_1
     ,cast(px.procedure_date_2 as date) as procedure_date_2
     ,cast(px.procedure_date_3 as date) as procedure_date_3
@@ -133,10 +133,10 @@ select
     ,cast(px.procedure_date_25 as date) as procedure_date_25
 from {{ var('medical_claims_header')}} h
 inner join {{ var('medical_claims_line')}} d
-	on cl.claim_id = h.claim_id
+	on d.claim_id = h.claim_id and d.member_id = h.member_id
 left join {{ ref('procedure_pivot')}} px
 	on h.claim_id = px.claim_id
 left join {{ ref('diagnosis_pivot')}} dx
 	on h.claim_id = dx.claim_id
-left join {{ var('diagnosis_related_groups_drg')}} drg
+left join {{ var('claim_level_value_add_drg')}} drg
 	on h.claim_id = drg.claim_id
