@@ -140,3 +140,20 @@ left join {{ ref('diagnosis_pivot')}} dx
 	on h.claim_id = dx.claim_id
 left join {{ var('claim_level_value_add_drg')}} drg
 	on h.claim_id = drg.claim_id
+where h.claim_id not in (
+    select distinct claim_id from (
+        select distinct h.claim_id ,   cast(h.claim_id as String) || '-' ||cast(d.line_no as int) as unique_number, count(*) as c
+        from `ferrous-weaver-306014`.`COAPCD`.`Medical_Claims_Header` h
+        inner join `ferrous-weaver-306014`.`COAPCD`.`medical_claims_line` d
+            on d.claim_id = h.claim_id and d.member_id = h.member_id
+        left join `ferrous-weaver-306014`.`COAPCD`.`procedure_pivot` px
+            on h.claim_id = px.claim_id
+        left join `ferrous-weaver-306014`.`COAPCD`.`diagnosis_pivot` dx
+            on h.claim_id = dx.claim_id
+        left join `ferrous-weaver-306014`.`COAPCD`.`Claim_Level_Value_Add_DRG` drg
+            on h.claim_id = drg.claim_id
+        group by h.claim_id, unique_number
+        having c > 1
+        and unique_number is not null
+        ) as dupes
+)
