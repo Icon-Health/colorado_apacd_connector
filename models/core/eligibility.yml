@@ -3,12 +3,12 @@ version: 2
 models:
     - name: eligibility
       description: Demographic information of members eligible for medical benefits at the member month grain (one row per month/year of patient enrollment)
+      tests:
+         - unique:
+             column_name: "(patient_id || '-' || month  || '-' || year)"
       columns:
         - name: patient_id
           description: Member unique identifier
-          tests:
-            - unique
-            - not_null
         - name: gender
           description: Member gender
         - name: birth_date
