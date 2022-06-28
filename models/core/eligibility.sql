@@ -13,8 +13,8 @@ select
     ,cast(null as String) as medicare_status
     ,cast(min(e.eligibility_month) as int) as month
     ,cast(min(extract(year from e.eligibility_dt)) as int) as year
-from {{ var('member_eligibility')}} e
-inner join {{ var('member_demographics')}} d
+from {{ source('COAPCD', 'Member_Eligibility') }} e
+inner join {{ source('COAPCD', 'Members') }} d
 	on e.member_id = d.member_id
 where d.member_id is not null
 group by patient_id, member_gender_cd, member_dob_year, race_1_cd, member_zip_cd, Member_state_cd, payer_cd
