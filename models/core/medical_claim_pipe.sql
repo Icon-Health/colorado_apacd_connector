@@ -134,9 +134,9 @@ select
 from {{ source('COAPCD', 'Medical_Claims_Header') }}  h
 inner join {{ source('COAPCD', 'medical_claims_line') }} d
 	on d.claim_id = h.claim_id and d.member_id = h.member_id
-left join `tuva.procedure_pivot` px
+left join {{ ref('procedure_pivot')}} px
 	on h.claim_id = px.claim_id
-left join `tuva.diagnosis_pivot` dx
+left join {{ ref('diagnosis_pivot')}} dx
 	on h.claim_id = dx.claim_id
 left join {{ source('COAPCD', 'Claim_Level_Value_Add_DRG') }} drg
 	on h.claim_id = drg.claim_id
@@ -146,9 +146,9 @@ where h.claim_id not in (
         from {{ source('COAPCD', 'Medical_Claims_Header') }} h
         inner join {{ source('COAPCD', 'medical_claims_line') }} d
             on d.claim_id = h.claim_id and d.member_id = h.member_id
-        left join `tuva.procedure_pivot` px
+        left join {{ ref('procedure_pivot')}} px
             on h.claim_id = px.claim_id
-        left join `tuva.diagnosis_pivot` dx
+        left join {{ ref('diagnosis_pivot')}} dx
             on h.claim_id = dx.claim_id
         left join {{ source('COAPCD', 'Claim_Level_Value_Add_DRG') }} drg
             on h.claim_id = drg.claim_id
