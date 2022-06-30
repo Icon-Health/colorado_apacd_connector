@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: eligibility
+    - name: eligibility_pipe
       description: Demographic information of members eligible for medical benefits at the member month grain (one row per month/year of patient enrollment)
       tests:
          - unique:

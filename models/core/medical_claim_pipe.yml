@@ -1,7 +1,7 @@
 version: 2
 
 models:
-    - name: medical_claim
+    - name: medical_claim_pipe
       description: Adjusticated claims for services and supplies provided to the beneficiary.
       tests:
          - unique:
