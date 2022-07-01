@@ -10,7 +10,11 @@ select
     ,cast(d.service_end_dt as date) as claim_line_end_date
     ,cast(h.claim_type_cd as String) as claim_type
     ,cast(h.bill_type_cd as String) as bill_type_code
-    ,cast(d.place_of_service_cd as String) as place_of_service_code
+    ,case 
+      when place_of_service_cd = '  ' then '00'
+      else place_of_service_cd 
+    end as place_of_service_code
+--    ,cast(d.place_of_service_cd as String) as place_of_service_code
     ,cast(h.admit_source_cd as String) as admit_source_code
     ,cast(h.admit_type_cd as String) as admit_type_code
     ,cast(h.discharge_status_cd as String) as discharge_disposition_code
