@@ -12,6 +12,11 @@ select
     ,cast(h.bill_type_cd as String) as bill_type_code
     ,case 
       when place_of_service_cd = '  ' then '00'
+      when place_of_service_cd = '1 ' then '01'
+      when place_of_service_cd = '1'  then '01'
+      when place_of_service_cd = '2 ' then '02'
+      when place_of_service_cd = '2'  then '02'
+      when place_of_service_cd = '8 ' then '08'
       else place_of_service_cd 
     end as place_of_service_code
 --    ,cast(d.place_of_service_cd as String) as place_of_service_code
