@@ -9,6 +9,7 @@ select
     ,cast(d.service_start_dt as date) as claim_line_start_date
     ,cast(d.service_end_dt as date) as claim_line_end_date
     ,cast(h.claim_type_cd as String) as claim_type
+    ,cast(h.Principal_Diagnosis_Cd as String) as principal_diagnosis_cd
     ,cast(h.bill_type_cd as String) as bill_type_code
     ,case 
       when place_of_service_cd = '  ' then '00'
