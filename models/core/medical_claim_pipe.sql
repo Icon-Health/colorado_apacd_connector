@@ -40,6 +40,7 @@ select
     ,cast(h.paid_dt as date) as paid_date
     ,cast(d.plan_paid_amt as float64) as paid_amount
     ,cast(d.charge_amt as float64) as charge_amount
+    ,cast((d.Plan_Covered_Amt + d.Member_Liability_Amt) as float64) as allowed_amount
     ,cast(null as String) as adjustment_type_code
     ,cast(dx.diagnosis_code_1 as String) as diagnosis_code_1
     ,cast(dx.diagnosis_code_2 as String) as diagnosis_code_2
