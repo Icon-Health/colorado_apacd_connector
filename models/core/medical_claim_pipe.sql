@@ -8,7 +8,7 @@ select
     ,cast(h.discharge_dt as date) as discharge_date
     ,cast(d.service_start_dt as date) as claim_line_start_date
     ,cast(d.service_end_dt as date) as claim_line_end_date
-    ,cast(h.claim_type_cd as String) as claim_type
+--    ,cast(h.claim_type_cd as String) as claim_type
     ,cast(h.Principal_Diagnosis_Cd as String) as principal_diagnosis_cd
     ,cast(h.bill_type_cd as String) as bill_type_code
     ,case 
@@ -23,11 +23,17 @@ select
       else place_of_service_cd 
     end as place_of_service_code
 --    ,cast(d.place_of_service_cd as String) as place_of_service_code
+    ,cast(d.revenue_cd as String) as revenue_center_code
+    ,case 
+      when place_of_service_cd is not null then 'P'
+      when d.revenue_cd is not null then 'I'
+      when h.bill_type_cd is not null then 'I'
+      when d.revenue_cd is not null and h.bill_type_cd is not null then 'I'
+    end as claim_type 
     ,cast(h.admit_source_cd as String) as admit_source_code
     ,cast(h.admit_type_cd as String) as admit_type_code
     ,cast(h.discharge_status_cd as String) as discharge_disposition_code
     ,cast(drg.msdrg_cd as String) as ms_drg
-    ,cast(d.revenue_cd as String) as revenue_center_code
     ,cast(d.service_qty as int) as service_unit_quantity
     ,cast(d.cpt4_cd as String) as hcpcs_code
     ,cast(d.cpt4_mod1_cd as String) as hcpcs_modifier_1
