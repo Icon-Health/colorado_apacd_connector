@@ -1,14 +1,12 @@
 version: 2
 
 sources:
-  - name: "{{ var('source_name') }}"
-    database: "{{ var('source_database') }}"
-    schema:  "{{ var('source_schema') }}"
+  - name: COAPCD
     tables:
-      - name: member_demographics
-      - name: member_eligibility
-      - name: medical_claims_header
+      - name: Medical_Claims_Dx
+      - name: Medical_Claims_Procedures
+      - name: Members
+      - name: Member_Eligibility
+      - name: Medical_Claims_Header
       - name: medical_claims_line
-      - name: medical_claims_dx
-      - name: medical_claims_procedures
-      - name: claim_level_value_add_drg
+      - name: Claim_Level_Value_Add_DRG

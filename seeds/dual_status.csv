@@ -1,12 +1,12 @@
 dual_status_code,dual_status_description
-"NA",Non-Medicaid
-"00",Not enrolled in Medicare for the month
-"01",Qualified Medicare Beneficiary (QMB)-only
-"02",QMB and full Medicaid coverage, including prescription drugs
-"03",Specified Low-Income Medicare Beneficiary (SLMB)-only
-"04",SLMB and full Medicaid coverage, including prescription drugs
-"05",Qualified Disabled Working Individual (QDWI)
-"06",Qualifying individuals (QI)
-"08",Other dual eligible (not QMB, SLMB, QWDI, or QI) with full Medicaid coverage, including prescription Drugs
-"09",Other dual eligible, but without Medicaid coverage
-"99",Unknown"
+"NA","Non-Medicaid"
+"00","Not enrolled in Medicare for the month"
+"01","Qualified Medicare Beneficiary (QMB)-only"
+"02","QMB and full Medicaid coverage, including prescription drugs"
+"03","Specified Low-Income Medicare Beneficiary (SLMB)-only"
+"04","SLMB and full Medicaid coverage, including prescription drugs"
+"05","Qualified Disabled Working Individual (QDWI)"
+"06","Qualifying individuals (QI)"
+"08","Other dual eligible (not QMB, SLMB, QWDI, or QI) with full Medicaid coverage, including prescription Drugs"
+"09","Other dual eligible, but without Medicaid coverage"
+"99","Unknown"

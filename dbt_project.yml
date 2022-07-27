@@ -24,25 +24,11 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "target"
   - "dbt_packages"
 
-vars:
-    source_database:          # configuration required - name of the database (project in BigQuery) where your data is stored
-    source_schema:       # configuration required - name of the schema (dataset in BigQuery) where you created staging tables
-    source_name: colorado_apacd      # configuration required - name of your source dataset e.g. cms_claims
-
-    member_demographics: "{{ source(var('source_name'),'member_demographics') }}"
-    member_eligibility: "{{ source(var('source_name'),'member_eligibility') }}"
-    medical_claims_header: "{{ source(var('source_name'),'medical_claims_header') }}"
-    medical_claims_line: "{{ source(var('source_name'),'medical_claims_line') }}"
-    medical_claims_dx: "{{ source(var('source_name'),'medical_claims_dx') }}"
-    medical_claims_procedures: "{{ source(var('source_name'),'medical_claims_procedures') }}"
-    claim_level_value_add_drg: "{{ source(var('source_name'),'claim_level_value_add_drg') }}"
-
-
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
 models:
-  my_new_project:
+  colorado_apacd_connector:
     # Applies to all files under models/example/
     example:
       materialized: view

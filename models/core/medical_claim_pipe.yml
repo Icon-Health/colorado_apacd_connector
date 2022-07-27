@@ -1,22 +1,22 @@
 version: 2
 
 models:
-    - name: medical_claim
+    - name: medical_claim_pipe
       description: Adjusticated claims for services and supplies provided to the beneficiary.
       tests:
          - unique:
-             column_name: "(claim_id || '-' || claim_line_id)"
+             column_name: "(claim_id || '-' || claim_line_number)"
       columns:
         - name: claim_id
           description: Claim unique identifier
-        - name: claim_line_id
+        - name: claim_line_number
           description: Claim line number
         - name: patient_id
           description: Beneficiary identifier
         - name: claim_start_date
-          description: Claim start/from date
+          description: Claim start from date
         - name: claim_end_date
-          description: Claim end/thru date
+          description: Claim end thru date
         - name: admission_date
           description: Admission date of inpatient hospitalization
         - name: discharge_date
@@ -28,7 +28,7 @@ models:
         - name: claim_type
           description: Identifies claim lines as inpatient factility, outpatient facility, or professional
         - name: bill_type_code
-          description: "Type of bill on uniform billing form (UB).  First two digits required: facility type code (TOB 1) and classification code (TOB 2)"
+          description: test
         - name: place_of_service_code
           description: The place where the indicated service was provided
         - name: admit_source_code
@@ -42,7 +42,7 @@ models:
         - name: revenue_center_code
           description: The provider-assigned revenue code for each cost center for which a separate charge is billed (type of accommodation or ancillary).  A cost center is a division or unit within a hospital (e.g., radiology, emergency room, pathology). Revenue center code 0001 represents the total of all revenue centers included on the claim.
         - name: service_unit_quantity
-          description: 
+          description: test
         - name: hcpcs_code
           description: The HCFA Common Procedure Coding System (HCPCS) code that represent procedures, supplies, products and services provided to beneficiary
         - name: hcpcs_modifier_1
@@ -168,9 +168,9 @@ models:
         - name: diagnosis_poa_25
           description: Claim diagnosis present on admission 25
         - name: diagnosis_code_type
-          description: 
+          description: test 
         - name: procedure_code_type
-          description: 
+          description: test
         - name: procedure_code_1
           description: Claim procedure code 1
         - name: procedure_code_2
