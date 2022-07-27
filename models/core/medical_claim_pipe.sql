@@ -25,7 +25,7 @@ select
 --    ,cast(d.place_of_service_cd as String) as place_of_service_code
     ,cast(d.revenue_cd as String) as revenue_center_code
     ,case 
-      when place_of_service_cd is not null then 'P'
+      when place_of_service_cd is not null and place_of_service_cd != '  ' then 'P'
       when d.revenue_cd is not null then 'I'
       when h.bill_type_cd is not null then 'I'
       when d.revenue_cd is not null and h.bill_type_cd is not null then 'I'
